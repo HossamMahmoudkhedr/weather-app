@@ -5,7 +5,7 @@ import { ReactComponent as Temperature } from '../assets/icons/temperature-half-
 import { ReactComponent as Rain } from '../assets/icons/noun-rainfall-217514.svg';
 import { ReactComponent as Eye } from '../assets/icons/eye-solid.svg';
 import { ReactComponent as Drops } from '../assets/icons/noun-water-6191907.svg';
-const WeatherDetails = () => {
+const WeatherDetails = ({ feelsLike, visibility, humidity }) => {
 	return (
 		<Stack height="100%">
 			<Grid
@@ -23,7 +23,7 @@ const WeatherDetails = () => {
 							/>
 						}
 						header="Feels like"
-						number="23°C"
+						number={`${Math.floor(feelsLike)}°C`}
 					/>
 				</Grid>
 				<Grid
@@ -53,7 +53,7 @@ const WeatherDetails = () => {
 							/>
 						}
 						header="Visibility"
-						number="23 mi"
+						number={`${visibility / 1000} m`}
 					/>
 				</Grid>
 				<Grid
@@ -68,7 +68,7 @@ const WeatherDetails = () => {
 							/>
 						}
 						header="Humidity"
-						number="50%"
+						number={`${humidity}%`}
 					/>
 				</Grid>
 			</Grid>

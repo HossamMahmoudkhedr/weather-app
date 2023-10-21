@@ -1,36 +1,41 @@
 import { Box, Stack, Typography } from '@mui/material';
-import React from 'react';
-import { ReactComponent as PartlyCloudy } from '../assets/icons/partly-cloudy.svg';
+import React, { useState } from 'react';
+import { icons } from '../utils/icons';
 import BluredBackground from '../utils/bluredBackground';
+import SearchBar from './searchBar';
 
-const CurrentTemp = () => {
+const CurrentTemp = ({ setLat, setLon, temperature, status, iconName }) => {
+	const [cityName, setCityName] = useState('');
+
 	return (
 		<Stack
-			direction="row"
+			direction="column"
 			position="relative"
 			borderRadius="1rem"
-			justifyContent="center"
-			alignItems="center"
 			height={'100%'}>
 			<BluredBackground />
-			<Box padding="1.2rem">
+			<Box>
+				<SearchBar
+					setCityName={setCityName}
+					setLat={setLat}
+					setLon={setLon}
+				/>
+			</Box>
+			<Stack
+				alignItems="center"
+				padding="1.2rem">
 				<Stack
 					direction="row"
 					spacing={3}
 					alignItems="center">
-					<Box>
-						<PartlyCloudy
-							width="140px"
-							height="140px"
-						/>
-					</Box>
+					<Box>{icons[iconName]}</Box>
 					<Box>
 						<Typography
 							variant="body1"
 							fontSize="100px"
 							fontWeight="700"
 							lineHeight="1">
-							20°C
+							{Math.floor(parseInt(temperature))}°C
 						</Typography>
 					</Box>
 				</Stack>
@@ -40,15 +45,15 @@ const CurrentTemp = () => {
 					<Typography
 						variant="body2"
 						fontSize="28px">
-						New York, USA
+						{cityName}
 					</Typography>
 					<Typography
 						variant="caption"
 						fontSize="16px">
-						Partly cloudy
+						{status}
 					</Typography>
 				</Box>
-			</Box>
+			</Stack>
 		</Stack>
 	);
 };

@@ -8,7 +8,7 @@ const StyledBack = styled.div`
 	width: 100%;
 	height: 100%;
 	background: transparent;
-	backdrop-filter: blur(3px);
+	backdrop-filter: blur(2px);
 	border-radius: inherit;
 	box-shadow: 0 0 18px -2px rgb(0 0 0 / 25%);
 	z-index: -1;
