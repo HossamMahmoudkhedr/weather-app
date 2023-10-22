@@ -28,7 +28,7 @@ const CurrentTemp = ({ setLat, setLon, temperature, status, iconName }) => {
 					direction="row"
 					spacing={3}
 					alignItems="center">
-					<Box>{icons[iconName]}</Box>
+					<Box width={'140px'}>{icons[iconName]}</Box>
 					<Box>
 						<Typography
 							variant="body1"

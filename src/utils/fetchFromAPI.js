@@ -16,9 +16,10 @@ export const fetchFromAPI = async (url) => {
 };
 
 const API_KEY = '78330c9a1745579aadab079cbd0b99b1';
-export const getWeather = async (lat, lon) => {
+const WEATHER_API = 'https://api.openweathermap.org/data/2.5';
+export const getWeather = async (lat, lon, type) => {
 	const { data } = await axios(
-		`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+		`${WEATHER_API}/${type}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
 	);
 	return data;
 };

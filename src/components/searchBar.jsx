@@ -47,6 +47,7 @@ const SearchBar = ({ setLat, setLon, setCityName }) => {
 		fetchFromAPI(`cities?namePrefix=${city}`).then((response) =>
 			setData(response.data)
 		);
+
 		setShowList(true);
 		console.log(data);
 	};

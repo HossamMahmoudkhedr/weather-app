@@ -1,7 +1,8 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import { ReactComponent as RainyCloud } from '../assets/icons/rainy-cloud.svg';
-const WeatherStatus = () => {
+import { icons } from './icons';
+
+const WeatherStatus = ({ max, iconName }) => {
 	return (
 		<Stack
 			spacing={2}
@@ -10,14 +11,13 @@ const WeatherStatus = () => {
 				<Typography
 					variant="body2"
 					fontSize="1.2rem">
-					28°C
+					{Math.floor(max)}°C
 				</Typography>
 			</Box>
-			<Box>
-				<RainyCloud
-					width="30px"
-					height="30px"
-				/>
+			<Box
+				width={'45px'}
+				height={'45px'}>
+				{icons[iconName]}
 			</Box>
 		</Stack>
 	);
